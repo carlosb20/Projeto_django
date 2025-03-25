@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from .models import Orcamento
 
 def index(request):
 
-    text = {'val':'carlos'}
+    items = Orcamento.objects.all()
+
+    text = {'val': items}
     
     return render(request,'myapp/index.html' , text)
 

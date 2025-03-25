@@ -1,11 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{% static 'media/html-5.png' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/index.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -14,9 +14,10 @@
 
     <a href="contato"> pagina contato </a>
 
-    
+    {% for p in val %}
+        <h2> {{ p.peca }} = {{ p.preco}} $ </h2>
 
-
+    {% endfor%}
 
 
     <script src="{% static 'js/index.js'%}"></script>
