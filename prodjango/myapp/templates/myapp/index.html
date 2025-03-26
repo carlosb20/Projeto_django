@@ -12,12 +12,23 @@
     
     <h1> Sistema de Orçamento de Pintura Automótiva </h1>
 
+   
+       <div class="contform">
+           <form action="{% url 'index' %}" method="POST">
+                {% csrf_token %}
+                <label for="peca">Peça</label>
+                <input type="text" name="peca" id="peca">
+                <label for="preco">preço</label>
+                <input type="text" name="preco" id="preco">
+                <button type="submit"> enviar </button>
+           </form>
+       </div>
+   
+    
+
     <a href="contato"> pagina contato </a>
 
-    {% for p in val %}
-        <h2> {{ p.peca }} = {{ p.preco}} $ </h2>
-
-    {% endfor%}
+    
 
 
     <script src="{% static 'js/index.js'%}"></script>

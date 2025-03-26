@@ -1,11 +1,19 @@
 
 body{
 
-    background-color: black;
+    background-color: rgb(26, 24, 24);
 }
 
-h2{
+h1{
 
-    color: aquamarine;
+    color: white;
+    text-align: center;
 }
+
+.contform{
+    width: 200px;
+    height: 300px;
+    border: 1px solid green;
+}
+
 
