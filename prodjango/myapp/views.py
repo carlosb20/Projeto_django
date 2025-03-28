@@ -1,23 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Orcamento
 
+
+@csrf_exempt
 def index(request):
 
-    pec = request.POST.get('peca')
-    pre = request.POST.get('preco')
-    print(dir(request))
+    if request.method == 'POST':
+        peca = request.POST.get('peca')
+        preco = request.POST.get('preco')
 
-    print(pec)
-    print(pre)
+        if Orcamento.objects.filter(peca=peca).exists():
+            
+            pass
+        else:
+        # Cria um novo registro se o nome for único
+            Orcamento.objects.create(peca=peca,preco=preco)
 
-    #items = Orcamento.objects.all()
-    #text = {'val': items}
-    
     return render(request,'myapp/index.html')
 
 
 def contato(request):
+
+    obj = Orcamento.objects.all()
+
+    text = {'peca':obj}
     
-    return render(request,'myapp/contato.html')
+    return render(request,'myapp/contato.html',text)
     

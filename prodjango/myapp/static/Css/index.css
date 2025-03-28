@@ -10,10 +10,73 @@ h1{
     text-align: center;
 }
 
+h2{
+
+    color: aliceblue;
+}
+
 .contform{
-    width: 200px;
-    height: 300px;
-    border: 1px solid green;
+    width: 700px;;
+    display: flex;
+    border: 1px solid rgb(141, 174, 141);
+}
+
+.ext{
+    width: 100%;
+    border:1px solid gray;
+    box-sizing: content-box;
+    background-color: rgba(123, 123, 133, 0.123);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+.ext h2{
+
+    text-align: center;
+}
+
+#meuForm{
+    display: flex;
+    flex-direction: column;
+}
+
+#meuForm label{
+
+    color: aliceblue;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#meuForm input{
+
+    font-size: 25px;
+    border: 0;
+    outline: none;
+    border-radius: 8px;
+    text-indent: 8px;
+    background-color: rgba(213, 219, 224, 0.644);
+}
+
+#meuForm input:hover{
+
+    background-color: rgba(159, 144, 144, 0.383);
+    color: aliceblue;
+    box-shadow: 1px 0px 6px 1px rgb(194, 191, 191);
 }
 
 
+.bts{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.bts button{
+
+    width: 100px;
+    font-size: 20px;
+    margin: 5px;
+}

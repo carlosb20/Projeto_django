@@ -1,9 +1,21 @@
 
-const H1 = document.querySelector('.H1')
 
-H1.style.color = 'red'
+document.getElementById('meuForm').addEventListener('submit',function(event){
+    event.preventDefault()
 
-console.log(H1)
+    let formData = new FormData(this);
+
+    fetch("{% url 'index' %}", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}"  // Adiciona o CSRF Token
+        }
+    })
+   
+});
+
+
 
 
 

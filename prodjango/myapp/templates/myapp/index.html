@@ -12,19 +12,37 @@
     
     <h1> Sistema de Orçamento de Pintura Automótiva </h1>
 
-   
        <div class="contform">
-           <form action="{% url 'index' %}" method="POST">
-                {% csrf_token %}
-                <label for="peca">Peça</label>
-                <input type="text" name="peca" id="peca">
-                <label for="preco">preço</label>
-                <input type="text" name="preco" id="preco">
-                <button type="submit"> enviar </button>
-           </form>
+            <div class="ext">
+                <h2> Cadastro de Peça </h2>
+                <form action="{% url 'index' %}" method="POST" id="meuForm">
+                        {% csrf_token %}
+                        <label for="peca">Peça</label>
+                        <input type="text" name="peca" id="peca">
+                        <label for="preco">preço</label>
+                        <input type="text" name="preco" id="preco">
+                        <div class="bts">
+                            <button type="submit"> enviar </button>
+                            
+                        </div>
+                </form>
+            </div>
+            <div class="ext">
+                <h2> Atualizar Peça </h2>
+                <form action="{% url 'index' %}" method="POST" id="meuForm">
+                        {% csrf_token %}
+                        <label for="pecas">Peça</label>
+                        <input type="text" name="peca" id="pecas">
+                        <label for="precos">preço</label>
+                        <input type="text" name="preco" id="precos">
+                        <div class="bts">
+                            <button type="submit"> update </button>
+                        </div>
+                </form>
+            </div>
        </div>
    
-    
+
 
     <a href="contato"> pagina contato </a>
 
