@@ -11,16 +11,16 @@
 <body>
     
     <h1> Sistema de Orçamento de Pintura Automótiva </h1>
-
+       <p>Cadastro</p>
        <div class="contform">
             <div class="ext">
                 <h2> Cadastro de Peça </h2>
                 <form action="{% url 'index' %}" method="POST" id="meuForm">
                         {% csrf_token %}
                         <label for="peca">Peça</label>
-                        <input type="text" name="peca" id="peca">
+                        <input type="text" name="peca" id="peca" required>
                         <label for="preco">preço</label>
-                        <input type="text" name="preco" id="preco">
+                        <input type="number" name="preco" id="preco" required>
                         <div class="bts">
                             <button type="submit"> enviar </button>
                             
@@ -32,23 +32,56 @@
                 <form action="{% url 'index' %}" method="POST" id="meuForm">
                         {% csrf_token %}
                         <label for="pecas">Peça</label>
-                        <input type="text" name="peca" id="pecas">
+                        <input type="text" name="peca" id= "pecas" required>
                         <label for="precos">preço</label>
-                        <input type="text" name="preco" id="precos">
+                        <input type="text" name="preco" id="precos" required>
                         <div class="bts">
                             <button type="submit"> update </button>
                         </div>
                 </form>
+                <div class="bas">
+                    <section>
+                        {% for p in pecacarro%}
+                        <option value="{{p.peca}}">{{p.peca}}</option>
+                        {% endfor %}
+                    </section>
+                </div>
             </div>
+            
        </div>
-   
+    
 
 
     <a href="contato"> pagina contato </a>
 
     
 
-
     <script src="{% static 'js/index.js'%}"></script>
+
+    <script>
+
+        document.getElementById('meuForm').addEventListener('submit',function(event){
+            event.preventDefault()
+
+            const peca = document.getElementById("peca");
+            const preco = document.querySelector("#preco");
+
+            console.log(peca.velue)
+            console.log(preco.velue)
+
+            newform = new FormData();
+            newform.append("peca",peca.velue)
+            newform.append("preco",preco.velue)
+
+            fetch("{% url 'index'%}",{
+
+                method:'POST',
+                body:newform,
+            });
+
+           
+        
+        });
+    </script>
 </body>
 </html>

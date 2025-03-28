@@ -15,10 +15,25 @@ h2{
     color: aliceblue;
 }
 
+p{
+    color: aqua;
+}
+
+.bas{
+
+    width: 450px;
+    height: 200px;
+    border: 1px solid gray;
+    padding: 10px;
+    
+}
+
 .contform{
-    width: 700px;;
+    width: 900px;;
     display: flex;
     border: 1px solid rgb(141, 174, 141);
+    
+    
 }
 
 .ext{
