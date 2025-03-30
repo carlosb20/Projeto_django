@@ -55,33 +55,19 @@
     <a href="contato"> pagina contato </a>
 
     
-
-    <script src="{% static 'js/index.js'%}"></script>
-
     <script>
-
-        document.getElementById('meuForm').addEventListener('submit',function(event){
-            event.preventDefault()
-
-            const peca = document.getElementById("peca");
-            const preco = document.querySelector("#preco");
-
-            console.log(peca.velue)
-            console.log(preco.velue)
-
-            newform = new FormData();
-            newform.append("peca",peca.velue)
-            newform.append("preco",preco.velue)
-
-            fetch("{% url 'index'%}",{
-
-                method:'POST',
-                body:newform,
-            });
-
-           
-        
-        });
+        function atualizarFormulario() {
+            fetch('index')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('meuFormulario').innerHTML = data.form_html;
+                })
+                .catch(error => console.error('Erro:', error));
+        }
     </script>
+    
+   
+
+
 </body>
 </html>

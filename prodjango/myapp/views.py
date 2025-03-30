@@ -1,18 +1,17 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 from .models import Orcamento
 
 
-@csrf_exempt
-def index(request):
 
+def index(request):
+    print(request.POST.get('peca'))
     if request.method == 'POST':
         pec = request.POST.get('peca')
         prec = request.POST.get('preco')
         #Orcamento.objects.create(peca=pec,preco=prec)
-    #if request.method == 'POST':
-        #peca = request.POST.get('peca')
-        #preco = request.POST.get('preco')
+
 
         #if Orcamento.objects.filter(peca=peca).exists():
             
@@ -25,6 +24,7 @@ def index(request):
     itens = {'pecacarro':context}
 
     return render(request,'myapp/index.html',itens)
+    
 
 
 def contato(request):
